@@ -142,9 +142,28 @@ const app = Vue.createApp({
                 feedback: this.feedback
             };
 
+            if (this.feedback.trim() !== '') {
+                alert('ご感想・ご意見誠に有難うございます！');
+            } else {
+                alert('また問題に挑戦してみてね');
+            }
+    
+            // 初期状態に戻す
+            this.loggedIn = false;
+            this.name = '';
+            this.roomNumber = '';
+            this.quizCompleted = false;
+            this.currentQuestionIndex = 0;
+            this.currentAnswer = '';
+            this.score = 0;
+            this.answers = [];
+            this.feedback = '';
+            this.answered = false;
+    
+            // データ送信処理（必要に応じて実装）
             console.log('Feedback submitted:', feedbackData);
-            alert('ご意見ありがとうございます！');
         }
+    
     },
     mounted() {
         this.shuffleQuestions();
