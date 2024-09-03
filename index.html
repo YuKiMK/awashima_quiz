@@ -22,12 +22,12 @@
             </select>
             <input v-model="roomNumber" :placeholder="texts.roomNumberPlaceholder" type="number" min="1">
             <input v-model="name" :placeholder="texts.namePlaceholder">
-            <button @click="login">{{ texts.loginButton }}</button>
+            <button @click="login">{{ texts.startQuizButton }}</button>
         </div>
 
         <!-- クイズ画面 -->
         <div v-if="loggedIn && !quizCompleted">
-            <h2>{{ texts.quizTitle }}</h2>
+            <h2>{{ '第' + (currentQuestionIndex + 1) + '問' }}</h2>
             <div class="progress-bar-container">
                 <div class="progress-bar" :style="{ width: progressPercentage + '%' }"></div>
             </div>
@@ -35,7 +35,7 @@
             <div v-if="currentQuestion.image">
                 <img :src="currentQuestion.image" alt="Question Image" style="max-width: 100%; height: auto;">
             </div>
-            <p>{{ currentQuestion.text }}</p>
+            <p>Q : {{ currentQuestion.text }}</p>
 
             <div class="question">
                 <div v-for="(option, optionIndex) in currentOptions" :key="optionIndex">
