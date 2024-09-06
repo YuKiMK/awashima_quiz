@@ -186,7 +186,7 @@ const app = Vue.createApp({
             });
             document.body.appendChild(note);
         }
-    },
+    }
     computed: {
         currentQuestion() {
             return this.questions[this.currentQuestionIndex] || {};
